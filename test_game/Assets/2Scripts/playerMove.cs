@@ -16,6 +16,7 @@ public class playerMove : MonoBehaviour {
     private float _jumpForce = 0;
     private int _flyingtime = 1;
     public bool isJump = false;
+    public bool isDoubleJump = false;
     public bool isGround = false;
 
     private Vector3 rotLeft = new Vector3(0, 0, 0);
@@ -59,6 +60,13 @@ public class playerMove : MonoBehaviour {
 
             if (isJump == true)
             {
+                if ((Input.GetKeyDown(KeyCode.Space) == true || Input.GetKeyDown(KeyCode.UpArrow) == true) && !isDoubleJump)
+                {
+                    isDoubleJump = true;
+                    _y += jumpForce;
+                    _jumpForce = jumpForce;
+                }
+
                 if (Physics2D.Raycast(trans.position, new Vector2(0, 1), 0.5f))
                 {
                     isJump = false;
@@ -72,6 +80,7 @@ public class playerMove : MonoBehaviour {
         }
         else
         {
+            isDoubleJump = false;
             isGround = true;
             _flyingtime = 0;
             _y = hit.transform.position.y + hit.transform.localScale.y / 2 + 0.5f;

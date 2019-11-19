@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\2Scripts\Camera\cameraMove.cs" />
+     <Compile Include="Assets\2Scripts\Item_Heart.cs" />
      <Compile Include="Assets\2Scripts\playerMove.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/거북이/프로그래밍/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
